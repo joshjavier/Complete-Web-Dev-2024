@@ -5,15 +5,63 @@
   <meta charset="UTF-8">
   <title>CSS Flag Project</title>
   <style>
-    /* Write your CSS Code here */
-    
+    .flag {
+      --blue: #002868;
+      --red: #CE1126;
+      --white: #fff;
+
+      width: 900px;
+      height: 600px;
+      background-color: var(--red);
+      position: relative;
+
+      & p {
+        text-align: center;
+        font-size: 5.5rem;
+        margin-block: 0;
+      }
+
+      /* The Flag */
+      > p {
+        color: #fff;
+      }
+
+      /* blue stripe */
+      > div {
+        width: 100%;
+        height: 300px;
+        background-color: var(--blue);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        /* white circle */
+        > div {
+          width: 240px;
+          height: 240px;
+          background-color: var(--white);
+          border-radius: 9999em;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          /* of Laos */
+          > p {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
   </style>
 </head>
 
-<!-- 
+<!--
   IMPORTANT! Do not change any HTML
-Don't add any classes/ids/elements 
-Use what you know about combining selectors 
+Don't add any classes/ids/elements
+Use what you know about combining selectors
 and CSS specificity instead.
 Hint 1: The flag is 900px by 600px and the circle is 200px by 200px.
 Hint 2: You can use CSS inspection to get the colors from
