@@ -6,24 +6,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mondrian Project</title>
   <style>
-    /* 
-    Write your CSS here 
-    Gap Colour: #000
-    White: #F0F1EC
-    Red: #E72F24
-    Black: #232629
-    Blue: #004592
-    Yellow: #F9D01E
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+    }
 
-    For dimensions, see dimensions.png image.
-    HINT: Remember you can't change the properties of grid lines.
-    But grid lines are transparent!
-    */
+    mondrian-grid {
+      --color-gap: #000;
+      --color-white: #F0F1EC;
+      --color-red: #E72F24;
+      --color-black: #232629;
+      --color-blue: #004592;
+      --color-yellow: #F9D01E;
+
+      display: grid;
+      grid-template-columns: 320px 198px 153px 50px;
+      grid-template-rows: 414px 130px 155px 20px;
+      grid-template-areas:
+        "red w1     w1    w1"
+        "w2  w3     w3    blue"
+        "w2  w3     w3    w4"
+        "w5  yellow black w4";
+      gap: 9px;
+      background-color: var(--color-gap);
+
+      > .red {
+        background-color: var(--color-red);
+        grid-area: red;
+      }
+
+      > .blue {
+        background-color: var(--color-blue);
+        grid-area: blue;
+        border-bottom: 10px solid #000;
+      }
+
+      > .yellow {
+        background-color: var(--color-yellow);
+        grid-area: yellow;
+      }
+
+      > .black {
+        background-color: var(--color-black);
+        grid-area: black;
+      }
+
+      > .white { background-color: var(--color-white); }
+      > .w1 { grid-area: w1; }
+      > .w2 { grid-area: w2; }
+      > .w3 { grid-area: w3; }
+      > .w4 { grid-area: w4; }
+      > .w5 { grid-area: w5; }
+    }
   </style>
 </head>
 
 <body>
-  <!-- Write your HTML here -->
+  <mondrian-grid>
+    <!-- colored cells -->
+    <div class="red"></div>
+    <div class="blue"></div>
+    <div class="yellow"></div>
+    <div class="black"></div>
+
+    <!-- white cells -->
+    <div class="white w1"></div>
+    <div class="white w2"></div>
+    <div class="white w3"></div>
+    <div class="white w4"></div>
+    <div class="white w5"></div>
+  </mondrian-grid>
 </body>
 
 </html>
