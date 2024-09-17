@@ -79,6 +79,13 @@ textarea:not([rows]) {
 
 
 :root {
+  /* Colors */
+  --color-charoal: #264653;
+  --color-green: #2a9d8f;
+  --color-saffron: #e9c46a;
+  --color-orange: #f4a261;
+  --color-sienna: #e76f51;
+
   /* Utopia fluid type */
   /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
   --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
@@ -312,6 +319,35 @@ body {
   }
 }
 
+footer {
+  text-align: center;
+  font-size: var(--step--1);
+  padding: var(--space-l);
+  background-color: var(--color-charoal);
+  color: #fff;
+
+  > .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-l);
+    align-items: center;
+  }
+
+  & ul {
+    padding-left: 0;
+    margin-block: 0;
+    justify-content: center;
+    --gutter: var(--space-l);
+    --threshold: 17.2rem;
+  }
+
+  & .license {
+    text-wrap: balance;
+    margin-top: 0;
+    font-weight: 700;
+  }
+}
+
 
 
 /* ------------------------------------------------------------------------- */
@@ -330,9 +366,20 @@ body {
 .cluster {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-s, 1rem);
+  gap: var(--gutter, var(--space-s, 1rem));
   /* justify-content: center; */
   align-items: center;
+}
+
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter, var(--space-s, 1rem));
+
+  > * {
+    flex-grow: 1;
+    flex-basis: calc((var(--threshold, 30rem) - 100%) * 999);
+  }
 }
 
 .visually-hidden:not(:focus):not(:active) {
