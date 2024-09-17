@@ -8,6 +8,161 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>welcome to my personal site!</h1>
+  <main>
+    <h1 class="visually-hidden">Josh Javier's Portfolio</h1>
+
+    <!-- Hero section -->
+    <section id="hero">
+      <p>Hello!</p>
+      <p>I&rsquo;m Josh. Nice to meet ya!</p>
+
+      <p>(im a developer btw)</p>
+    </section>
+
+    <!-- About section -->
+    <section id="about">
+      <h2 class="visually-hidden">About me</h2>
+      <div class="container">
+        <div class="image">
+          <img src="./images/josh.png" alt="This is my face" width="180" height="180">
+        </div>
+        <div class="text">
+          <p>I&rsquo;m a <strong>front-end developer</strong> with a passion for creating <strong>visually engaging, user-friendly,</strong> and <strong>accessible web experiences.</strong></p>
+          <p>Currently, I&rsquo;m expanding my skills to become a full-stack developer, diving deeper into both front-end and back-end technologies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects section -->
+    <section id="projects">
+      <h2>My Projects</h2>
+
+      <article class="project-grid">
+        <article class="project-card">
+          <div class="title">
+            <h3>Age calculator app</h3>
+          </div>
+          <div class="tags">
+            <p class="visually-hidden">Built with:</p>
+            <ul role="list" class="cluster">
+              <li class="tag">React</li>
+              <li class="tag">React Spring</li>
+              <li class="tag">Vite</li>
+            </ul>
+          </div>
+          <div class="image">
+            <img src="./images/age-calculator-app.png" alt="" width="360">
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="title">
+            <h3>Bookmark landing page</h3>
+          </div>
+          <div class="tags">
+            <p class="visually-hidden">Built with:</p>
+            <ul role="list" class="cluster">
+              <li class="tag">React</li>
+              <li class="tag">TypeScript</li>
+              <li class="tag">Vite</li>
+            </ul>
+          </div>
+          <div class="image">
+            <img src="./images/bookmark-landing-page.png" alt="" width="360">
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="title">
+            <h3>Calculator app</h3>
+          </div>
+          <div class="tags">
+            <p class="visually-hidden">Built with:</p>
+            <ul role="list" class="cluster">
+              <li class="tag">JavaScript</li>
+              <li class="tag">Web Components</li>
+              <li class="tag">11ty</li>
+              <li class="tag">Vite</li>
+            </ul>
+          </div>
+          <div class="image">
+            <img src="./images/calculator-app.png" alt="" width="360">
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="title">
+            <h3>Interactive card details form</h3>
+          </div>
+          <div class="tags">
+            <p class="visually-hidden">Built with:</p>
+            <ul role="list" class="cluster">
+              <li class="tag">JavaScript</li>
+              <li class="tag">GSAP</li>
+              <li class="tag">11ty</li>
+            </ul>
+          </div>
+          <div class="image">
+            <img src="./images/interactive-card-details-form.png" alt="" width="360">
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="title">
+            <h3>REST Countries API with color theme switcher</h3>
+          </div>
+          <div class="tags">
+            <p class="visually-hidden">Built with:</p>
+            <ul role="list" class="cluster">
+              <li class="tag">React</li>
+              <li class="tag">React Router</li>
+              <li class="tag">TypeScript</li>
+              <li class="tag">Tailwind</li>
+            </ul>
+          </div>
+          <div class="image">
+            <img src="./images/rest-countries-api.png" alt="" width="360">
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="title">
+            <h3>Todo app</h3>
+          </div>
+          <div class="tags">
+            <p class="visually-hidden">Built with:</p>
+            <ul role="list" class="cluster">
+              <li class="tag">React</li>
+              <li class="tag">TypeScript</li>
+              <li class="tag">Tailwind</li>
+            </ul>
+          </div>
+          <div class="image">
+            <img src="./images/todo-app.png" alt="" width="360">
+          </div>
+        </article>
+      </article>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact">
+      <div class="container">
+        <h2>Get in touch</h2>
+        <p>Ready to collaborate? <strong>Drop me a message</strong> and let's build something amazing together.</p>
+        <button>
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+            <path d="M6.66667 6.66675H33.3333C35.1667 6.66675 36.6667 8.16675 36.6667 10.0001V30.0001C36.6667 31.8334 35.1667 33.3334 33.3333 33.3334H6.66667C4.83334 33.3334 3.33334 31.8334 3.33334 30.0001V10.0001C3.33334 8.16675 4.83334 6.66675 6.66667 6.66675Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M36.6667 10L20 21.6667L3.33334 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span>Contact me</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/joshjavier/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://x.com/joshjavierr" target="_blank" rel="noopener">X</a></li>
+      <li><a href="https://github.com/joshjavier" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://joshjavier.com/" target="_blank" rel="noopener">Website</a></li>
+    </ul>
+    <p>&copy; Josh Javier 2024. Made with ❤️ in Manila.</p>
+  </footer>
 </body>
 </html>
