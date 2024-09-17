@@ -121,6 +121,8 @@ textarea:not([rows]) {
   --fluid-3\.12-7\.23: clamp(0.195rem, 0.1057rem + 0.4467vw, 0.4519rem);
   /* @link https://utopia.fyi/clamp/calculator?a=320,1240,128—151 */
   --fluid-128-151: clamp(8rem, 7.5rem + 2.5vw, 9.4375rem);
+  /* @link https://utopia.fyi/clamp/calculator?a=320,1240,18—25 */
+  --fluid-18-25: clamp(1.125rem, 0.9728rem + 0.7609vw, 1.5625rem);
 }
 
 
@@ -169,6 +171,38 @@ body {
   & .small {
     font-size: var(--step--1);
     margin-top: var(--fluid-128-151);
+  }
+}
+
+#about {
+  & .wrapper {
+    --wrapper-max-width: 860px;
+  }
+
+  & .card {
+    display: flex;
+    gap: var(--space-l);
+    border: 1px solid #000;
+    padding: var(--space-l) var(--space-s-l);
+
+    > .image {
+      flex-shrink: 0;
+      margin-inline: auto;
+
+      > img { border-radius: 48px; }
+    }
+
+    > .text {
+      font-size: var(--fluid-18-25);
+
+      > :first-child {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 552px) {
+      flex-direction: column;
+    }
   }
 }
 
