@@ -350,6 +350,10 @@ body {
 
 #contact {
   --wrapper-max-width: 633px;
+  margin-top: 68px;
+  padding-block: 147px 95px;
+  -webkit-mask: linear-gradient(to bottom, transparent, #000 15%);
+          mask: linear-gradient(to bottom, transparent, #000 15%);
 
   & .card {
     text-align: center;
@@ -359,6 +363,7 @@ body {
     flex-direction: column;
     gap: 48px;
     align-items: center;
+    background-color: #fff;
 
     > .title {
       font-size: var(--step-5);
@@ -405,9 +410,8 @@ footer {
   & ul {
     padding-left: 0;
     margin-block: 0;
-    justify-content: center;
     --gutter: var(--space-l);
-    --threshold: 17.2rem;
+    --threshold: 17.18rem;
   }
 
   & .license {
