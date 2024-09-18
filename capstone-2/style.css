@@ -260,6 +260,7 @@ section a[href^="https://"]::after {
     font-size: var(--step-3);
     font-weight: 300;
     margin-top: 0;
+    text-wrap: balance;
 
     > strong { font-weight: 700; }
   }
