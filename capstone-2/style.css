@@ -144,6 +144,17 @@ body {
   margin: 0;
 }
 
+section a[href^="https://"]::after {
+  content: '';
+  margin-inline-start: 0.5ch;
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  background-image: url("images/external-link.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 
 
 /* ------------------------------------------------------------------------- */
