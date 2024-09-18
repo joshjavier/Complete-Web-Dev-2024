@@ -176,13 +176,73 @@ body {
   min-height: 100vh;
   line-height: normal;
   display: grid;
-  place-content: center;
+  place-items: center;
+  position: relative;
+
+  > .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 250px);
+    overflow: hidden;
+
+    & * { position: absolute; }
+
+    & .blur {
+      backdrop-filter: blur(60px);
+      width: 100%;
+      height: 100%;
+    }
+
+    & .red {
+      top: 36.14px;
+      /* left: 86.32px; */
+      right: 71vw;
+    }
+
+    & .orange {
+      top: -133px;
+      /* right: -67px; */
+      left: 62vw;
+    }
+
+    & .yellow {
+      top: 722px;
+      /* right: 153.52px; */
+      left: 53vw;
+    }
+
+    & .lower-left {
+      top: 387.19px;
+      /* left: -149.61px; */
+      right: 67vw;
+      width: 628px;
+      height: 568px;
+    }
+
+    & .green {
+      top: 0;
+      left: 0;
+    }
+
+    & .blue {
+      top: 348.81px;
+      right: -30.37px;
+    }
+  }
+
+  > .content {
+    position: relative;
+    z-index: 10;
+  }
 
   & .greet {
     font-family: "Lilita One", sans-serif;
     font-size: var(--fluid-104-241);
     letter-spacing: calc(-1 * var(--fluid-3\.12-7\.23));
     margin-top: 0;
+    color: var(--color-sienna);
   }
 
   & .intro {
@@ -201,12 +261,21 @@ body {
 
 #about {
   --wrapper-max-width: 860px;
+  position: relative;
+  margin-top: 5rem;
+  padding-block: 187px;
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+  -webkit-mask: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
+          mask: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
 
   & .card {
     display: flex;
     gap: var(--space-l);
     border: 1px solid #000;
     padding: var(--space-l) var(--space-s-l);
+    background-color: #fff;
 
     > .image {
       flex-shrink: 0;
@@ -355,6 +424,11 @@ footer {
 /**
  * 3. UTILITY CLASSES
  */
+
+.bg-wavy {
+  background-color: #eee;
+  background-image: url("images/12px-wavy.png");
+}
 
 .wrapper {
   box-sizing: content-box;
