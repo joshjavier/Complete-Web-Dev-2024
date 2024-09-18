@@ -1,3 +1,4 @@
+const set = document.querySelector('.set')
 const buttons = document.querySelectorAll('.drum')
 
 const keymap = {}
@@ -14,6 +15,28 @@ const audiomap = {
   k: new Audio('sounds/crash.mp3'),
   l: new Audio('sounds/kick-bass.mp3'),
 }
+
+function playSound(key) {
+  audiomap[key].currentTime = 0
+  audiomap[key].play()
+}
+
+function animateButton(key) {
+  const button = keymap[key]
+  button.classList.add('pressed')
+  setTimeout(() => {
+    button.classList.remove('pressed')
+  }, 250)
+}
+
+set.addEventListener('click', (event) => {
+  if (!event.target.classList.contains('drum'))
+    return
+
+  const key = event.target.textContent
+  playSound(key)
+  animateButton(key)
+})
 
 document.addEventListener('keydown', (event) => {
   /** @type {HTMLButtonElement | undefined} */
