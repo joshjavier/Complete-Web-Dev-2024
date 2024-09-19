@@ -1,4 +1,5 @@
 const gamePattern = []
+const userClickedPattern = []
 
 const buttonColors = [
   'red',
@@ -17,7 +18,7 @@ function flashButton(el) {
   $(el).fadeOut(100).fadeIn(100)
 }
 
-function playSound(el) {
+function playSound(key) {
   const audiomap = {
     red: new Audio('sounds/red.mp3'),
     blue: new Audio('sounds/blue.mp3'),
@@ -25,11 +26,13 @@ function playSound(el) {
     yellow: new Audio('sounds/yellow.mp3'),
   }
 
-  audiomap[$(el).attr('id')].play()
+  audiomap[key].play()
 }
 
 // Add click handlers to buttons
 $('.btn').on('click', function () {
-  flashButton(this)
-  playSound(this)
+  const userChosenColor = $(this).attr('id')
+  playSound(userChosenColor)
+  userClickedPattern.push(userChosenColor)
+  console.log(userClickedPattern)
 })
