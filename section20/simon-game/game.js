@@ -8,12 +8,25 @@ const buttonColors = [
   'yellow',
 ]
 
+let level = 0
+let started = false
+
 function nextSequence() {
   const randomNumber = Math.floor(Math.random() * 4)
   const randomChosenColor = buttonColors[randomNumber]
 
+  // Add random color to the game pattern
   gamePattern.push(randomChosenColor)
+  flashButton($(`#${randomChosenColor}`))
   playSound(randomChosenColor)
+
+  // Announce the current level
+  $('#level-title').text(`Level ${level}`)
+  // Prepare for the next level
+  level++
+
+  // Start the game!
+  started = true
 }
 
 function flashButton(el) {
@@ -46,4 +59,11 @@ $('.btn').on('click', function () {
   playSound(userChosenColor)
   animatePress(userChosenColor)
   console.log(userClickedPattern)
+})
+
+// Start the game when any key is pressed
+$(document).on('keydown', function () {
+  if (started) return
+
+  nextSequence()
 })
