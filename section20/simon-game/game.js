@@ -11,7 +11,9 @@ const buttonColors = [
 function nextSequence() {
   const randomNumber = Math.floor(Math.random() * 4)
   const randomChosenColor = buttonColors[randomNumber]
+
   gamePattern.push(randomChosenColor)
+  playSound(randomChosenColor)
 }
 
 function flashButton(el) {
@@ -32,7 +34,8 @@ function playSound(key) {
 // Add click handlers to buttons
 $('.btn').on('click', function () {
   const userChosenColor = $(this).attr('id')
-  playSound(userChosenColor)
+
   userClickedPattern.push(userChosenColor)
+  playSound(userChosenColor)
   console.log(userClickedPattern)
 })
