@@ -31,11 +31,19 @@ function playSound(key) {
   audiomap[key].play()
 }
 
+function animatePress(currentColor) {
+  $(`#${currentColor}`).addClass('pressed')
+  setTimeout(() => {
+    $(`#${currentColor}`).removeClass('pressed')
+  }, 100);
+}
+
 // Add click handlers to buttons
 $('.btn').on('click', function () {
   const userChosenColor = $(this).attr('id')
 
   userClickedPattern.push(userChosenColor)
   playSound(userChosenColor)
+  animatePress(userChosenColor)
   console.log(userClickedPattern)
 })
