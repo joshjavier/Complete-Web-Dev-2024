@@ -37,9 +37,8 @@ function nextSequence() {
   playSound(randomChosenColor)
 
   // Announce the current level
+  level += 1
   $('#level-title').text(`Level ${level}`)
-  // Prepare for the next level
-  level++
 
   // Start the game if not yet started
   if (!started) {
