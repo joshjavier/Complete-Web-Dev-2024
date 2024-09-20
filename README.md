@@ -4,7 +4,17 @@ This repo contains my code from doing the exercises and challenges in the Udemy 
 
 Deployed via GitHub Pages.
 
-## Projects
+## Capstone Projects
+
+1. [Online Resume](https://joshjavier.github.io/Complete-Web-Dev-2024/capstone1/)
+2. [Personal Site](https://joshjavier.github.io/Complete-Web-Dev-2024/capstone2/)
+
+## Boss Level Challenges
+
+1. [Dicee Game](https://joshjavier.github.io/Complete-Web-Dev-2024/section17/dicee-challenge/)
+2. [Simon Game](https://joshjavier.github.io/Complete-Web-Dev-2024/section20/simon-game/)
+
+## Other Projects
 
 - [Movie Ranking](https://joshjavier.github.io/Complete-Web-Dev-2024/2.4%20Movie%20Ranking%20Project/)
 - [Birthday Invite](https://joshjavier.github.io/Complete-Web-Dev-2024/3.4%20Birthday%20Invite%20Project/)
@@ -16,8 +26,3 @@ Deployed via GitHub Pages.
 - [Flexbox Pricing Table](https://joshjavier.github.io/Complete-Web-Dev-2024/9.4%20Flexbox%20Pricing%20Table%20Project/)
 - [Mondrian](https://joshjavier.github.io/Complete-Web-Dev-2024/10.3%20Mondrian%20Project/)
 - [TinDog](https://joshjavier.github.io/Complete-Web-Dev-2024/11.3%20TinDog%20Project/)
-
-## Capstone Projects
-
-1. [Online Resume](https://joshjavier.github.io/Complete-Web-Dev-2024/capstone1/)
-2. [Personal Site](https://joshjavier.github.io/Complete-Web-Dev-2024/capstone2/)
