@@ -1,5 +1,5 @@
-const gamePattern = []
-const userClickedPattern = []
+let gamePattern = []
+let userClickedPattern = []
 
 const buttonColors = [
   'red',
@@ -17,7 +17,7 @@ function nextSequence() {
 
   // Add random color to the game pattern
   gamePattern.push(randomChosenColor)
-  flashButton($(`#${randomChosenColor}`))
+  flashButton(randomChosenColor)
   playSound(randomChosenColor)
 
   // Announce the current level
@@ -29,8 +29,8 @@ function nextSequence() {
   started = true
 }
 
-function flashButton(el) {
-  $(el).fadeOut(100).fadeIn(100)
+function flashButton(currentColor) {
+  $(`#${currentColor}`).fadeOut(100).fadeIn(100)
 }
 
 function playSound(key) {
@@ -51,14 +51,50 @@ function animatePress(currentColor) {
   }, 100);
 }
 
+/**
+ * Returns true if the user clicks match the game pattern
+ * @returns {boolean} matches
+ */
+function checkAnswer() {
+  for (let i = 0; i < userClickedPattern.length; i++) {
+    const color = gamePattern[i]
+    const userColor = userClickedPattern[i]
+
+    if (userColor !== color) {
+      return false
+    }
+  }
+
+  return true
+}
+
 // Add click handlers to buttons
 $('.btn').on('click', function () {
+  // Buttons are only clickable when the game has started and the
+  // lengths of gamePattern and userClickedPattern are not equal.
+  if (!started) return
+
   const userChosenColor = $(this).attr('id')
 
+  // Save the user chosen color
   userClickedPattern.push(userChosenColor)
   playSound(userChosenColor)
   animatePress(userChosenColor)
-  console.log(userClickedPattern)
+
+  if (!checkAnswer()) {
+    console.log('GAME OVER')
+    started = false
+    return
+  }
+
+  if (userClickedPattern.length === gamePattern.length) {
+    // Empty the user array
+    userClickedPattern = []
+    // Start the next round after a delay
+    setTimeout(() => {
+      nextSequence()
+    }, 1000)
+  }
 })
 
 // Start the game when any key is pressed
