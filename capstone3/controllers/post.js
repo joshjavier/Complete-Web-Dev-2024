@@ -45,3 +45,10 @@ postRouter.post('/:id/edit', postExtractor, (req, res) => {
   postCollection.set(post.id, post)
   res.redirect(`/post/${post.slug}`)
 })
+
+postRouter.delete('/:id', postExtractor, (req, res) => {
+  if (req.post) {
+    postCollection.delete(req.post.id)
+  }
+  res.sendStatus(204)
+})
