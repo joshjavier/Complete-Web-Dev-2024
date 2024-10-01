@@ -33,3 +33,15 @@ postRouter.get('/:id/edit', postExtractor, (req, res) => {
     res.sendStatus(404)
   }
 })
+
+postRouter.post('/:id/edit', postExtractor, (req, res) => {
+  if (!req.post) {
+    res.sendStatus(404)
+  }
+  const post = {
+    ...req.post,
+    ...req.body,
+  }
+  postCollection.set(post.id, post)
+  res.redirect(`/post/${post.slug}`)
+})

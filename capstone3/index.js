@@ -18,7 +18,6 @@ app.get('/', (req, res) => {
 
 app.use('/post', postRouter)
 
-
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`)
 })
