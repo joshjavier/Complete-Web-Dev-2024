@@ -28,3 +28,6 @@ async function fetchUsers() {
 // Initialize the in-memory data store with dummy data
 await fetchPosts()
 await fetchUsers()
+
+// Create a user for new posts
+userCollection.set(999, "Josh Javier")
