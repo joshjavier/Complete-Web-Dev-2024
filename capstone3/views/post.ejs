@@ -4,6 +4,8 @@
 
 <p>by <%= post.author %></p>
 
+<a href="<%= `/post/${post.slug ?? post.id}/edit` %>">Edit post</a>
+
 <p><%= post.body %></p>
 
 <%- include('partials/footer.ejs') %>
