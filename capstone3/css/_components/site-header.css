@@ -1,0 +1,10 @@
+header {
+  --wrapper-max-width: 1160px;
+  padding-block: var(--space-l);
+
+  & .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

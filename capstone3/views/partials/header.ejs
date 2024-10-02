@@ -8,3 +8,17 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <%- include('icons.ejs') %>
+
+  <header>
+    <div class="wrapper center">
+      <div class="logo">
+        <a href="/">Blog Web App</a>
+      </div>
+
+      <button class="btn btn-sm btn-primary">
+        <svg class="icon"><use href="#icon-plus" /></svg>
+        New post
+      </button>
+    </div>
+  </header>
