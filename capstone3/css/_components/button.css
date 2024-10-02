@@ -1,5 +1,5 @@
 .btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 16px;
   font-size: var(--step-0);
@@ -7,6 +7,15 @@
   border: 2px solid transparent;
   border-radius: 6px;
   cursor: pointer;
+  line-height: normal;
+
+  &:where(a) {
+    text-decoration: none;
+  }
+
+  &.delete {
+    color: var(--color-red);
+  }
 }
 
 .btn-sm {
@@ -19,4 +28,10 @@
   background-color: var(--color-blue-grey-800);
   color: #fff;
   font-weight: 700;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-blue-grey-800);
+  border-color: currentColor;
 }

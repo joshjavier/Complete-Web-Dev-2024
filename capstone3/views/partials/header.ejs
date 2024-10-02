@@ -16,10 +16,24 @@
         <a href="/">Blog Web App</a>
       </div>
 
-      <button class="btn btn-sm btn-primary">
-        <svg class="icon"><use href="#icon-plus" /></svg>
-        New post
-      </button>
+      <div class="buttons">
+        <% if (locals.post) { %>
+          <button data-js-hook="delete-btn" class="btn btn-sm btn-outline delete">
+            <svg class="icon"><use href="#icon-trash" /></svg>
+            Delete post
+          </button>
+
+          <a href="<%= `/post/${post.slug ?? post.id}/edit` %>" class="btn btn-sm btn-outline">
+            <svg class="icon"><use href="#icon-edit" /></svg>
+            Edit post
+          </a>
+        <% } %>
+
+        <button class="btn btn-sm btn-primary">
+          <svg class="icon"><use href="#icon-plus" /></svg>
+          New post
+        </button>
+      </div>
     </div>
   </header>
 

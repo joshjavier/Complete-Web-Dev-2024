@@ -17,3 +17,9 @@ body {
 main {
   --wrapper-max-width: 1160px;
 }
+
+h1 {
+  font-size: var(--step-5);
+  font-weight: 700;
+  letter-spacing: -2.4416px;
+}

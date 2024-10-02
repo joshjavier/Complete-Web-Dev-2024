@@ -4,8 +4,6 @@ main:has(.home) {
 
 .home {
   & h1 {
-    font-size: var(--step-5);
-    font-weight: 700;
     font-style: italic;
     margin-top: var(--space-3xl);
   }

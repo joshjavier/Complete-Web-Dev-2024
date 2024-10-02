@@ -1,0 +1,18 @@
+main:has(.post) {
+  width: min(100%, 1160px);
+}
+
+.post {
+  max-width: 760px;
+
+  & .byline {
+    font-size: var(--step-2);
+    font-weight: 300;
+    margin-block: var(--space-m) var(--space-2xl);
+  }
+
+  & .body {
+    max-width: 560px;
+    line-height: 1.6;
+  }
+}
