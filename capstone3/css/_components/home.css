@@ -1,0 +1,21 @@
+main:has(.home) {
+  --wrapper-max-width: 760px;
+}
+
+.home {
+  & h1 {
+    font-size: var(--step-5);
+    font-weight: 700;
+    font-style: italic;
+    margin-top: var(--space-3xl);
+  }
+
+  & ul {
+    font-size: var(--step-1);
+    margin-top: var(--space-xl);
+
+    > * + * {
+      margin-top: 16px;
+    }
+  }
+}

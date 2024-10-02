@@ -1,4 +1,9 @@
+/* Blocks */
 @import 'button.css';
 @import 'icon.css';
 @import 'logo.css';
+@import 'site-footer.css';
 @import 'site-header.css';
+
+/* Pages */
+@import 'home.css';
