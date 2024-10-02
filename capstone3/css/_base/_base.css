@@ -1,0 +1,12 @@
+@import 'reset.css';
+@import 'fonts.css';
+@import 'root.css';
+
+body {
+  margin: 0;
+  font-family: "Source Serif 4", Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  font-weight: normal;
+  font-size: var(--step-0);
+  background-color: var(--color-blue-grey-200);
+  color: var(--color-blue-grey-800);
+}
