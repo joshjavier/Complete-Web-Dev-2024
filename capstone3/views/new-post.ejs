@@ -1,30 +1,45 @@
 <%- include('partials/header.ejs') %>
 
-<h1>New Post</h1>
+<a href="/" class="btn btn-sm btn-outline">
+  <svg class="icon"><use href="#icon-arrow-left"></svg>
+  Back to home
+</a>
 
-<form method="post">
-  <div>
-    <label for="title-field">Title</label>
-    <input type="text" name="title" id="title-field">
-  </div>
+<article class="post-form">
+  <h1>New Post</h1>
 
-  <div>
-    <label for="slug-field">Permalink</label>
-    <div>
-      <span>/post/</span>
-      <input type="text" name="slug" id="slug-field">
+  <form method="post">
+    <div class="fields">
+      <div class="form-field">
+        <label for="title-field">Title</label>
+        <input type="text" name="title" id="title-field">
+      </div>
+
+      <div class="form-field">
+        <label for="slug-field">Permalink</label>
+        <div class="span-before-textbox">
+          <span>/post/</span>
+          <input type="text" name="slug" id="slug-field">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="body-field">Body</label>
+        <textarea name="body" id="body-field" cols="30" rows="9"></textarea>
+      </div>
     </div>
-  </div>
 
-  <div>
-    <label for="body-field">Body</label>
-    <textarea name="body" id="body-field" cols="30" rows="10"></textarea>
-  </div>
-
-  <div>
-    <button type="button">Save as draft</button>
-    <button type="submit">Publish</button>
-  </div>
-</form>
+    <div class="buttons switcher">
+      <button type="button" class="btn btn-outline" disabled>
+        <svg class="icon"><use href="#icon-save" /></svg>
+        Save as draft
+      </button>
+      <button type="submit" class="btn btn-primary">
+        <svg class="icon"><use href="#icon-send" /></svg>
+        Publish
+      </button>
+    </div>
+  </form>
+</article>
 
 <%- include('partials/footer.ejs') %>

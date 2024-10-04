@@ -16,6 +16,7 @@ body {
 
 main {
   --wrapper-max-width: 1160px;
+  width: 100%;
 }
 
 h1 {

@@ -1,6 +1,7 @@
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   font-size: var(--step-0);
   padding: var(--space-xs) var(--space-m);
@@ -15,6 +16,13 @@
 
   &.delete {
     color: var(--color-red);
+  }
+
+  &[disabled] {
+    background-color: var(--color-blue-grey-400);
+    color: var(--color-blue-grey-600);
+    border-color: transparent;
+    cursor: not-allowed;
   }
 }
 
