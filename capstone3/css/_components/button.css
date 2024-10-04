@@ -9,6 +9,11 @@
   border-radius: 6px;
   cursor: pointer;
   line-height: normal;
+  transition: all .2s;
+
+  &:not([disabled]) {
+    box-shadow: var(--shadow-elevation-medium);
+  }
 
   &:where(a) {
     text-decoration: none;
@@ -23,6 +28,11 @@
     color: var(--color-blue-grey-600);
     border-color: transparent;
     cursor: not-allowed;
+  }
+
+  &:hover:not([disabled]) {
+    box-shadow: none;
+    transform: translateY(1px);
   }
 }
 
