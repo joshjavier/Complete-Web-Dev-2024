@@ -11,12 +11,12 @@
   <%- include('icons.ejs') %>
 
   <header>
-    <div class="wrapper center">
+    <div class="wrapper center cluster">
       <div class="logo">
         <a href="/">Blog Web App</a>
       </div>
 
-      <div class="buttons">
+      <div class="buttons cluster">
         <% if (locals.post) { %>
           <button data-js-hook="delete-btn" class="btn btn-sm btn-outline error">
             <svg class="icon"><use href="#icon-trash" /></svg>

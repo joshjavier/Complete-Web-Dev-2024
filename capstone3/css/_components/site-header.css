@@ -8,14 +8,10 @@ header {
           mask: linear-gradient(to top, transparent, #000 25%);
 
   & .wrapper {
-    display: flex;
     justify-content: space-between;
-    align-items: center;
   }
 
   & .buttons {
-    display: flex;
-    align-items: center;
     gap: var(--space-s);
   }
 }
