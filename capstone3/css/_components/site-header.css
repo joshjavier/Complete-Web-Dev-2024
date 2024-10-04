@@ -1,6 +1,11 @@
 header {
   --wrapper-max-width: 1160px;
   padding-block: var(--space-l);
+  position: sticky;
+  top: 0;
+  background-color: var(--color-blue-grey-200);
+  -webkit-mask: linear-gradient(to top, transparent, #000 25%);
+          mask: linear-gradient(to top, transparent, #000 25%);
 
   & .wrapper {
     display: flex;
