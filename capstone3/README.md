@@ -50,3 +50,26 @@ Example: http://www.paulgraham.com/articles.html
 - Test the application on different devices and browsers to ensure the styling works correctly.
 - Fix any bugs or issues that came up during testing.
 
+## Development
+
+Since I'm using a build step for the CSS, I open two terminals when developing: one for the Express server and another to automatically rerun the CSS build step when a CSS file is changed.
+
+```sh
+# Run the Express server in dev mode
+npm run dev
+
+# Bundle CSS files to public/style.css when a change is detected in the `/css` directory (run this in a another terminal)
+npx chokidar-cli "css/**/*.css" -c "npm run build:css"
+```
+
+I haven't set up HMR so I need to manually reload the browser to reflect the changes.
+
+## Tools and Acknowledgments
+
+- [DummyJSON](https://dummyjson.com/) for dummy posts
+- [Source Serif 4](https://fonts.adobe.com/fonts/source-serif-4) for the typeface
+- [Utopia](https://utopia.fyi/) for fluid type and space
+- [LightningCSS](https://lightningcss.dev/) for CSS bundling
+- [Every Layout](https://every-layout.dev/) utility classes
+- [WireFramer Figma library](https://www.figma.com/community/file/1101637212272928503/wireframer-quick-wireframing-library) for wireframing and icons
+- "[Wind in the Willows - Vintage Illustration (1908)](https://www.flickr.com/photos/39527581@N07/36956003566)" by [BudCat14/Ross](https://www.flickr.com/photos/39527581@N07) licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/?ref=openverse) for the background image
