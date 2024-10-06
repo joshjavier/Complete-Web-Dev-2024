@@ -64,6 +64,40 @@ npx chokidar-cli "css/**/*.css" -c "npm run build:css"
 
 I haven't set up HMR so I need to manually reload the browser to reflect the changes.
 
+## Deployment
+
+This app is deployed using Fly.io and can be accessed at https://capstone3.fly.dev/
+
+Here are the steps for making your own deployment (make sure your machine has `flyctl` installed):
+
+1. Inside the `capstone3` directory, launch a new Fly app but don't deploy yet:
+
+```sh
+cd capstone3
+fly launch --no-deploy
+```
+
+2. Update the Dockerfile and add these lines under `COPY . .`:
+
+```dockerfile
+# Bundle CSS
+RUN npm run build:css
+# Prune dev packages from node_modules
+RUN npm prune
+```
+
+3. (Optional) Adjust the `NODE_VERSION` in the Dockerfile
+
+```dockerfile
+ARG NODE_VERSION=lts-bookworm
+```
+
+4. Deploy the app.
+
+```sh
+fly deploy
+```
+
 ## Tools and Acknowledgments
 
 - [DummyJSON](https://dummyjson.com/) for dummy posts
