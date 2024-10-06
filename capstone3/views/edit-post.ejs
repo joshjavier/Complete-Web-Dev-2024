@@ -1,0 +1,45 @@
+<%- include('partials/header.ejs') %>
+
+<a href="/" class="btn btn-sm btn-outline">
+  <svg class="icon"><use href="#icon-arrow-left"></svg>
+  Back to home
+</a>
+
+<article class="post-form">
+  <h1>Edit Post</h1>
+
+  <form method="post">
+    <div class="fields">
+      <div class="form-field">
+        <label for="title-field">Title</label>
+        <input type="text" name="title" id="title-field" value="<%= post.title %>">
+      </div>
+
+      <div class="form-field">
+        <label for="slug-field">Permalink</label>
+        <div class="span-before-textbox">
+          <span>/post/</span>
+          <input type="text" name="slug" id="slug-field" value="<%= post.slug ?? post.id %>">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="body-field">Body</label>
+        <textarea name="body" id="body-field" cols="30" rows="9"><%= post.body %></textarea>
+      </div>
+    </div>
+
+    <div class="buttons switcher">
+      <button type="button" class="btn btn-outline error">
+        <svg class="icon"><use href="#icon-x" /></svg>
+        Cancel
+      </button>
+      <button type="submit" class="btn btn-primary">
+        <svg class="icon"><use href="#icon-save" /></svg>
+        Save changes
+      </button>
+    </div>
+  </form>
+</article>
+
+<%- include('partials/footer.ejs') %>

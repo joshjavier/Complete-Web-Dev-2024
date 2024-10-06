@@ -1,0 +1,17 @@
+<%- include('partials/header.ejs') %>
+
+<a href="/" class="btn btn-sm btn-outline">
+  <svg class="icon"><use href="#icon-arrow-left"></svg>
+  Back to home
+</a>
+
+<article class="post">
+  <h1><%= post.title %></h1>
+  <p class="byline">by <%= post.author %></p>
+
+  <div class="body">
+    <p><%= post.body %></p>
+  </div>
+</article>
+
+<%- include('partials/footer.ejs') %>

@@ -1,0 +1,25 @@
+.post {
+  max-width: 760px;
+
+  & .byline {
+    font-size: var(--step-2);
+    font-weight: 300;
+    margin-block: var(--space-m) var(--space-2xl);
+  }
+
+  & .body {
+    max-width: 560px;
+    line-height: 1.6;
+  }
+}
+
+@media (min-width: 1100px) {
+  body:has(.post) {
+    background-image: url('./wind-in-the-willows.jpg');
+    background-blend-mode: color-burn;
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-position: left 60vw bottom 12vh;
+    background-attachment: fixed;
+  }
+}

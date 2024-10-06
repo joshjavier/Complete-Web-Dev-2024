@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <% if (locals.post) { %>
+      <%= post.title %> &mdash;
+    <% } %>
+    Blog Web App
+  </title>
+  <meta name="description" content="Blog web app using Node.js, Express, and EJS">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <%- include('icons.ejs') %>
+
+  <header>
+    <div class="wrapper center cluster">
+      <div class="logo">
+        <a href="/">Blog Web App</a>
+      </div>
+
+      <div class="buttons cluster">
+        <% if (locals.post) { %>
+          <button data-js-hook="delete-btn" class="btn btn-sm btn-outline error">
+            <svg class="icon"><use href="#icon-trash" /></svg>
+            Delete post
+          </button>
+
+          <a href="<%= `/post/${post.slug ?? post.id}/edit` %>" class="btn btn-sm btn-outline">
+            <svg class="icon"><use href="#icon-edit" /></svg>
+            Edit post
+          </a>
+        <% } %>
+
+        <a href="/post/new" class="btn btn-sm btn-primary">
+          <svg class="icon"><use href="#icon-plus" /></svg>
+          New post
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="center">
