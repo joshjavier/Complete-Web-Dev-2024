@@ -81,8 +81,23 @@ app.patch('/jokes/:id', (req, res) => {
 })
 
 //7. DELETE Specific joke
+app.delete('/jokes/:id', (req, res) => {
+  const id = Number(req.params.id)
+  jokes = jokes.filter(j => j.id !== id)
+  res.sendStatus(204)
+})
 
 //8. DELETE All jokes
+app.delete('/jokes', (req, res) => {
+  const { key } = req.query
+
+  if (key === masterKey) {
+    jokes = []
+    res.sendStatus(204)
+  } else {
+    res.status(401).json({ error: "You're not authorized to perform that action." })
+  }
+})
 
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
