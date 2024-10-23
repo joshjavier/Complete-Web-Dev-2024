@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import { rng } from "./utils.js";
 
 const app = express();
 const port = 3000;
@@ -8,16 +9,76 @@ const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //1. GET a random joke
+app.get('/random', (req, res) => {
+  res.send(jokes[rng(jokes.length)]);
+})
 
 //2. GET a specific joke
+app.get('/jokes/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const joke = jokes.find(j => j.id === id)
+
+  if (joke) {
+    res.send(joke)
+  } else {
+    res.status(404).json({ error: 'Joke not found' })
+  }
+})
 
 //3. GET a jokes by filtering on the joke type
+app.get('/filter', (req, res) => {
+  const { type } = req.query
+  const filteredJokes = jokes.filter(j => j.jokeType.toLowerCase() === type.toLowerCase())
+  res.send(filteredJokes)
+})
 
 //4. POST a new joke
+app.post('/jokes', (req, res) => {
+  const id = Math.max(...jokes.map(j => j.id)) + 1
+  const newJoke = {
+    id,
+    jokeText: req.body.text,
+    jokeType: req.body.type,
+  }
+  jokes.push(newJoke)
+  res.send(newJoke)
+})
 
 //5. PUT a joke
+app.post('/jokes/:id', (req, res) => {
+  const id = Number(req.params.id)
+  const updatedJoke = {
+    id,
+    jokeText: req.body.text,
+    jokeType: req.body.type,
+  }
+  const existingId = jokes.findIndex(j => j.id === id)
+
+  if (existingId) {
+    jokes[existingId] = updatedJoke
+  } else {
+    jokes.push(updatedJoke)
+  }
+
+  res.send(updatedJoke)
+})
 
 //6. PATCH a joke
+app.patch('/jokes/:id', (req, res) => {
+  const id = Number(req.params.id)
+  const { text, type } = req.body
+  const joke = jokes.find(j => j.id === id)
+
+  if (joke) {
+    let updatedJoke = joke
+    if (text) updatedJoke.jokeText = req.body.text
+    if (type) updatedJoke.jokeType = req.body.type
+    jokes = jokes.map(j => j.id === id ? updatedJoke : j)
+    res.send(updatedJoke)
+  } else {
+    res.status(400).json({ error: 'Joke not found' })
+  }
+})
 
 //7. DELETE Specific joke
 
