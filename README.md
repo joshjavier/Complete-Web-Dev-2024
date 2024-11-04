@@ -8,6 +8,8 @@ Deployed via GitHub Pages.
 
 1. [Online Resume](https://joshjavier.github.io/Complete-Web-Dev-2024/capstone1/)
 2. [Personal Site](https://joshjavier.github.io/Complete-Web-Dev-2024/capstone2/)
+3. [Blog Web App](https://capstone3.fly.dev/)
+4. [devfinder](https://devfinder.fly.dev/)
 
 ## Boss Level Challenges
 
