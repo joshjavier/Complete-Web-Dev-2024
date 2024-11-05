@@ -29,7 +29,7 @@ app.post("/add", async (req, res) => {
 
   try {
     // Get the corresponding country code
-    const result = await db.query('SELECT country_code FROM countries WHERE country_name ILIKE $1', [country]);
+    const result = await db.query('SELECT country_code FROM countries WHERE country_name ILIKE $1', [`${country}%`]);
     const visitedCountriesResult = await db.query("SELECT country_code FROM visited_countries");
     countries = visitedCountriesResult.rows.map(c => c.country_code);
 
