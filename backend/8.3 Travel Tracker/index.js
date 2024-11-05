@@ -26,12 +26,23 @@ app.get("/", async (req, res) => {
 app.post("/add", async (req, res) => {
   const { country } = req.body;
 
-  // Get the corresponding country code
-  const result = await db.query(`SELECT country_code FROM countries WHERE country_name ILIKE '${country}%'`);
-  const country_code = result.rows[0]?.country_code;
+  try {
+    // Get the corresponding country code
+    const result = await db.query('SELECT country_code FROM countries WHERE country_name ILIKE $1', [country]);
 
-  // Add country code to visited_countries table
-  await db.query(`INSERT INTO visited_countries (country_code) VALUES ('${country_code}')`);
+    // Add country code to visited_countries table
+    if (result.rowCount) {
+      const country_code = result.rows[0].country_code;
+      await db.query('INSERT INTO visited_countries (country_code) VALUES ($1)', [country_code]);
+    }
+  } catch (error) {
+    if (error.message.includes('duplicate key value')) {
+      console.log(error.detail)
+    } else {
+      console.error(error.name + ': ' + error.message)
+      console.log(error)
+    }
+  }
 
   res.redirect("/");
 });
