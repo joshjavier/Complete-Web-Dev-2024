@@ -6,11 +6,6 @@ export const Todo = sequelize.define('todo', {
     type: DataTypes.STRING(100),
     allowNull: false,
   },
-  done: {
-    type: DataTypes.BOOLEAN,
-    defaultValue: false,
-    allowNull: false,
-  },
 }, {
   underscored: true,
 })

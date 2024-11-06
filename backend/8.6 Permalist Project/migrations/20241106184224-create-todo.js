@@ -12,11 +12,6 @@ export const up = async ({ context: queryInterface }) => {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
-    done: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-      allowNull: false,
-    },
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,

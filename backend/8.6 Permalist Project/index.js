@@ -23,9 +23,28 @@ app.post('/add', async (req, res) => {
   res.redirect('/')
 })
 
-app.post('/edit', (req, res) => {})
+app.post('/edit', async (req, res) => {
+  const { updatedItemId, updatedItemTitle } = req.body
+  const todo = await Todo.findByPk(Number(updatedItemId))
 
-app.post('/delete', (req, res) => {})
+  if (todo) {
+    todo.title = updatedItemTitle
+    await todo.save()
+  }
+
+  res.redirect('/')
+})
+
+app.post('/delete', async (req, res) => {
+  const id = Number(req.body.deleteItemId)
+  const todo = await Todo.findByPk(id)
+
+  if (todo) {
+    await todo.destroy()
+  }
+
+  res.redirect('/')
+})
 
 async function start() {
   await connectToDatabase()
