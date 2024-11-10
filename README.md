@@ -6,8 +6,8 @@ Deployed via GitHub Pages.
 
 ## Capstone Projects
 
-1. [Online Resume](https://joshjavier.github.io/Complete-Web-Dev-2024/capstone1/)
-2. [Personal Site](https://joshjavier.github.io/Complete-Web-Dev-2024/capstone2/)
+1. [Online Resume](https://joshjavier.github.io/Complete-Web-Dev-2024/capstones/1-online-resume/)
+2. [Personal Site](https://joshjavier.github.io/Complete-Web-Dev-2024/capstones/2-personal-site/)
 3. [Blog Web App](https://capstone3.fly.dev/)
 4. [devfinder](https://devfinder.fly.dev/)
 
