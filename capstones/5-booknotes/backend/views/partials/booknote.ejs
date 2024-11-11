@@ -1,0 +1,32 @@
+<book-note id="<%= `${item.user_id}-${item.book_id}` %>" class="flex overflow-hidden h-full">
+  <div class="relative w-32 flex-shrink-0">
+    <!-- <img
+      src="{book.coverUrl}"
+      alt={`Cover of ${book.title}`}
+      width={128}
+      height={192}
+      class="object-cover h-full"
+    />
+  </div> -->
+  <div class="flex flex-col flex-grow p-4">
+    <div class="header p-0 mb-2">
+      <h2 class="title text-xl"><%= item.title %></h2>
+      <p class="text-sm text-muted-foreground"><%= item.author %></p>
+    </div>
+    <p class="content p-0 flex flex-col justify-between flex-grow">
+      <p class="text-sm mb-4"><%= item.content %></p>
+      <div class="flex justify-between items-center mt-auto">
+        <span>Rating: <%= item.rating %></span>
+        <!-- <div class="flex">
+          {[...Array(5)].map((_, i) => (
+            <StarIcon
+              key={i}
+              class={`w-5 h-5 ${i < book.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+            />
+          ))}
+        </div> -->
+        <span class="text-xs text-muted-foreground">Read on: <%= new Intl.DateTimeFormat('sv-SE').format(item.date_read) %></span>
+      </div>
+    </p>
+  </div>
+</book-note>
