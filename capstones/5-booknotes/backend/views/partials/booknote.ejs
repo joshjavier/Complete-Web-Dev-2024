@@ -1,13 +1,15 @@
-<book-note id="<%= `${item.user_id}-${item.book_id}` %>" class="flex overflow-hidden h-full">
-  <div class="relative w-32 flex-shrink-0">
-    <!-- <img
-      src="{book.coverUrl}"
-      alt={`Cover of ${book.title}`}
-      width={128}
-      height={192}
-      class="object-cover h-full"
+<article
+  id="<%= `${item.user_id}-${item.book_id}` %>"
+  class="booknote flex overflow-hidden h-full"
+  data-isbn="<%= item.isbn %>"
+>
+  <div class="cover relative w-32 flex-shrink-0">
+    <img
+      alt="Cover of <%= item.title %>"
+      class="object-cover w-full h-full"
+      loading="lazy"
     />
-  </div> -->
+  </div>
   <div class="flex flex-col flex-grow p-4">
     <div class="header p-0 mb-2">
       <h2 class="title text-xl"><%= item.title %></h2>
@@ -29,4 +31,4 @@
       </div>
     </p>
   </div>
-</book-note>
+</article>
