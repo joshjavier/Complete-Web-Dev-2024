@@ -16,7 +16,11 @@ router.get('/', async (req, res, next) => {
       break
   }
   const booknotes = await findBooknotesByUser(1, { sort })
-  res.render('index', { title: "Booknotes by Josh", booknotes })
+  res.render('index', {
+    title: "Booknotes by Josh",
+    booknotes,
+    sort: req.query.sort,
+  })
 })
 
 module.exports = router
