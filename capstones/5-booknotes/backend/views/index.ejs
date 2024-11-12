@@ -21,7 +21,7 @@
           </select>
           <button type="submit" class="sr-only">Submit</button>
         </form>
-        <button class="btn btn-accent">Add New Book</button>
+        <button class="btn" onclick="add_form.showModal()">Add New Book</button>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -30,5 +30,62 @@
         <% }) %>
       </div>
     </main>
+
+    <dialog id="add_form" class="modal">
+      <div class="modal-box">
+        <form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button></form>
+        <form id="addBookForm" action="/add" method="post">
+          <h3 class="font-bold text-lg mb-4">Add New Book</h3>
+          <div class="form-control w-full">
+              <label class="label" for="title">
+                  <span class="label-text">Title</span>
+              </label>
+              <input type="text" name="title" id="title" placeholder="Enter book title" class="input input-bordered w-full" required />
+          </div>
+          <div class="form-control w-full">
+              <label class="label" for="author">
+                  <span class="label-text">Author</span>
+              </label>
+              <input type="text" name="author" id="author" placeholder="Enter author name" class="input input-bordered w-full" required />
+          </div>
+          <div class="form-control w-full">
+              <label class="label" for="isbn">
+                  <span class="label-text">ISBN</span>
+              </label>
+              <input type="text" name="isbn" id="isbn" placeholder="Tip: Enter the ISBN first to autofill title and author fields" class="input input-bordered w-full" />
+          </div>
+          <div class="form-control w-full">
+              <label class="label" for="notes">
+                  <span class="label-text">Notes</span>
+              </label>
+              <textarea name="notes" id="notes" class="textarea textarea-bordered h-24" placeholder="Enter your notes about the book" required></textarea>
+          </div>
+          <div class="form-control w-full">
+              <label class="label">
+                  <span class="label-text">Rating</span>
+              </label>
+              <div class="rating" id="ratingStars">
+                  <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" value="1" />
+                  <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" value="2" />
+                  <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" value="3" />
+                  <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" value="4" />
+                  <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" value="5" />
+              </div>
+          </div>
+          <div class="form-control w-full">
+              <label class="label" for="dateRead">
+                  <span class="label-text">Date Read</span>
+              </label>
+              <input type="date" name="dateRead" id="dateRead" class="input input-bordered w-full" required />
+          </div>
+          <div class="modal-action">
+              <button class="btn btn-primary" id="saveBook">Save Book</button>
+          </div>
+        </form>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
   </body>
 </html>

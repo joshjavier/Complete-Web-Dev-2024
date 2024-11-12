@@ -11,6 +11,9 @@
     "dev": "npm run createdir && concurrently --kill-others -c magenta,yellow npm:dev:*",
     "build": "npm run createdir && concurrently -c magenta,yellow npm:build:*"
   },
+  "dependencies": {
+    "axios": "^1.7.7"
+  },
   "devDependencies": {
     "concurrently": "^9.1.0",
     "cross-env": "^7.0.3",

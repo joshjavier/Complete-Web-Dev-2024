@@ -23,4 +23,9 @@ router.get('/', async (req, res, next) => {
   })
 })
 
+router.post('/add', async (req, res) => {
+  console.log(req.body)
+  res.redirect('/')
+})
+
 module.exports = router
