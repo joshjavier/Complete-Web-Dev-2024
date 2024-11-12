@@ -19,6 +19,13 @@ async function findBooknotesByUser(id = 1, { sort = [] } = {}) {
   return booknotes
 }
 
+async function addBook(id = 1, data) {
+  // Use ISBN to fetch metadata
+  // Check if author exists, otherwise add it to the authors table
+  // Check if book exists, otherwise add it and connect to author
+  // Add a new entry into the booknotes table
+}
+
 module.exports = {
   findBooknotesByUser,
 }
