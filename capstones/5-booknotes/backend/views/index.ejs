@@ -8,12 +8,12 @@
     <script defer src="/js/app.js"></script>
   </head>
   <body>
-    <main class="container mx-auto px-4 py-6">
+    <main class="container mx-auto px-4 py-8">
       <h1 class="text-3xl font-bold mb-6">My Booknotes</h1>
 
       <div class="flex justify-between items-center mb-6">
         <form action="/" id="sort-form">
-          <select name="sort" id="sort-select" class="inline-flex h-[35px] items-center justify-center gap-[5px] rounded bg-white px-[15px] text-[13px] leading-none text-violet11 shadow-[0_2px_10px] shadow-black/10 outline-none hover:bg-mauve3 focus:shadow-[0_0_0_2px] focus:shadow-black data-[placeholder]:text-violet9">
+          <select name="sort" id="sort-select" class="select select-bordered w-full max-w-xs">
             <option value="" <%= !locals.sort ? 'selected' : '' %> disabled hidden>Sort by</option>
             <option <%= sort === 'rating' ? 'selected' : '' %> value="rating">Rating</option>
             <option <%= sort === 'recency' ? 'selected' : '' %> value="recency">Recency</option>
@@ -21,6 +21,7 @@
           </select>
           <button type="submit" class="sr-only">Submit</button>
         </form>
+        <button class="btn btn-accent">Add New Book</button>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

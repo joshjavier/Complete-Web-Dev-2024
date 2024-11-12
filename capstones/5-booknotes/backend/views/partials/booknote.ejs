@@ -1,34 +1,26 @@
 <article
   id="<%= `${item.user_id}-${item.book_id}` %>"
-  class="booknote flex overflow-hidden h-full"
+  class="booknote card lg:card-side bg-base-100 shadow-xl"
   data-isbn="<%= item.isbn %>"
 >
-  <div class="cover relative w-32 flex-shrink-0">
+  <figure class="cover px-5 py-5 aspect-[1/1.45] h-72 lg:h-auto lg:w-48 shrink-0">
     <img
       alt="Cover of <%= item.title %>"
-      class="object-cover w-full h-full"
+      class="w-full h-full object-contain lg:object-cover rounded-lg shadow-md"
       loading="lazy"
     />
-  </div>
-  <div class="flex flex-col flex-grow p-4">
-    <div class="header p-0 mb-2">
-      <h2 class="title text-xl"><%= item.title %></h2>
-      <p class="text-sm text-muted-foreground"><%= item.author %></p>
-    </div>
-    <p class="content p-0 flex flex-col justify-between flex-grow">
-      <p class="text-sm mb-4"><%= item.content %></p>
-      <div class="flex justify-between items-center mt-auto">
-        <span>Rating: <%= item.rating %></span>
-        <!-- <div class="flex">
-          {[...Array(5)].map((_, i) => (
-            <StarIcon
-              key={i}
-              class={`w-5 h-5 ${i < book.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
-            />
-          ))}
-        </div> -->
-        <span class="text-xs text-muted-foreground">Read on: <%= new Intl.DateTimeFormat('sv-SE').format(item.date_read) %></span>
+  </figure>
+  <div class="card-body py-5 px-5">
+    <h2 class="card-title text-lg"><%= item.title %></h2>
+    <p class="text-sm font-semibold grow-0"><%= item.author %></p>
+    <p class="text-sm line-clamp-2"><%= item.content %></p>
+    <div class="card-actions justify-between items-center mt-auto">
+      <div class="rating">
+        <% for (let i = 1; i <= 5; i++) { %>
+            <input type="radio" name="rating-<%= `${item.user_id}-${item.book_id}` %>" class="mask mask-star-2 bg-orange-400" <%= i <= item.rating ? 'checked' : '' %> disabled />
+        <% } %>
       </div>
-    </p>
+      <div class="text-sm">Read on: <%= new Intl.DateTimeFormat('sv-SE').format(item.date_read) %></div>
+    </div>
   </div>
 </article>
