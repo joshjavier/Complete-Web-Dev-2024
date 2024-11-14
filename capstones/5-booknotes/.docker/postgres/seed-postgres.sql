@@ -9,7 +9,7 @@ CREATE TABLE users (
 CREATE TABLE books (
   id SERIAL PRIMARY KEY,
   title varchar(100) NOT NULL,
-  isbn varchar(17) NOT NULL
+  isbn varchar(17) UNIQUE NOT NULL
 );
 
 CREATE TABLE authors (

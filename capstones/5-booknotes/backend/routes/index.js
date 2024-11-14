@@ -1,4 +1,4 @@
-const { findBooknotesByUser } = require('../services/booknotes')
+const { findBooknotesByUser, addBooknote } = require('../services/booknotes')
 const router = require('express').Router()
 
 /* GET home page. */
@@ -24,7 +24,7 @@ router.get('/', async (req, res, next) => {
 })
 
 router.post('/add', async (req, res) => {
-  console.log(req.body)
+  await addBooknote(1, req.body)
   res.redirect('/')
 })
 

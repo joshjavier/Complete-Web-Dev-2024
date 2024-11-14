@@ -9,7 +9,7 @@ class AddBookForm {
 
   events = () => {
     this.form.addEventListener('change', async (e) => {
-      const { isbn, title, author } = this.form.elements
+      const { isbn, title, author, authorKey } = this.form.elements
 
       // Trigger queries only if title, author, or isbn fields are updated
       if (![isbn, title, author].includes(e.target)) {
@@ -27,6 +27,7 @@ class AddBookForm {
         const [book] = await this.findBooks(q)
         title.value = book.title
         author.value = book.author.name
+        authorKey.value = book.author.olid
       } else {
         q = `${title.value} ${author.value}`.trim()
         const [book] = await this.findBooks(q)
@@ -34,7 +35,10 @@ class AddBookForm {
         console.log(book.author)
         console.log(book.isbn)
         if (!title.value && book.title) title.value = book.title
-        if (!author.value && book.author) author.value = book.author.name
+        if (!author.value && book.author) {
+          author.value = book.author.name
+          authorKey.value = book.author.olid
+        }
         if (!isbn.value && book.isbn) isbn.value = book.isbn.pop()
       }
     })
