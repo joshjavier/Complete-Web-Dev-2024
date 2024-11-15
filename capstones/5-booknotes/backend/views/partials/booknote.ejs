@@ -1,5 +1,5 @@
 <article
-  id="<%= `${item.user_id}-${item.book_id}` %>"
+  id="<%= item.id %>"
   class="booknote card lg:card-side bg-base-100 shadow-xl"
   data-isbn="<%= item.isbn %>"
 >
@@ -17,10 +17,14 @@
     <div class="card-actions justify-between items-center mt-auto">
       <div class="rating">
         <% for (let i = 1; i <= 5; i++) { %>
-            <input type="radio" name="rating-<%= `${item.user_id}-${item.book_id}` %>" class="mask mask-star-2 bg-orange-400" <%= i <= item.rating ? 'checked' : '' %> disabled />
+            <input type="radio" name="rating-<%= item.id %>" class="mask mask-star-2 bg-orange-400" <%= i <= item.rating ? 'checked' : '' %> disabled />
         <% } %>
       </div>
       <div class="text-sm">Read on: <%= new Intl.DateTimeFormat('sv-SE').format(item.date_read) %></div>
+    </div>
+    <div class="card-actions justify-end mt-2">
+      <button class="editBooknote btn btn-sm btn-outline btn-info">Edit</button>
+      <button class="deleteBooknote btn btn-sm btn-outline btn-error">Delete</button>
     </div>
   </div>
 </article>

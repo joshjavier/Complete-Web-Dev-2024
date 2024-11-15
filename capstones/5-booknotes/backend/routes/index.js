@@ -1,4 +1,4 @@
-const { findBooknotesByUser, addBooknote } = require('../services/booknotes')
+const { findBooknotesByUser, addBooknote, editBooknote } = require('../services/booknotes')
 const router = require('express').Router()
 
 /* GET home page. */
@@ -25,6 +25,11 @@ router.get('/', async (req, res, next) => {
 
 router.post('/add', async (req, res) => {
   await addBooknote(1, req.body)
+  res.redirect('/')
+})
+
+router.post('/edit', async (req, res) => {
+  await editBooknote(req.body)
   res.redirect('/')
 })
 

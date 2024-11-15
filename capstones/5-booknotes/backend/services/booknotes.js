@@ -5,7 +5,7 @@ async function findBooknotesByUser(id = 1, { sort = [] } = {}) {
   if (sort.length) orderBy = `ORDER BY ${sort[0]} ${sort[1]}`
 
   const query = `
-    SELECT booknotes.user_id, booknotes.book_id, books.title, books.isbn, authors.name AS author, booknotes.content, booknotes.rating, booknotes.date_read
+    SELECT booknotes.id, books.title, books.isbn, authors.name AS author, booknotes.content, booknotes.rating, booknotes.date_read
     FROM booknotes
     INNER JOIN books ON books.id = booknotes.book_id
     INNER JOIN authorship ON authorship.book_id = booknotes.book_id
@@ -17,6 +17,19 @@ async function findBooknotesByUser(id = 1, { sort = [] } = {}) {
   const booknotes = await db.any(query, [id])
 
   return booknotes
+}
+
+async function findBooknoteById(id) {
+  const query = `
+    SELECT booknotes.id, books.title, books.isbn, authors.name AS author, booknotes.content, booknotes.rating, booknotes.date_read
+    FROM booknotes
+    INNER JOIN books ON books.id = booknotes.book_id
+    INNER JOIN authorship ON authorship.book_id = booknotes.book_id
+    INNER JOIN authors ON authors.olid = authorship.author_id
+    WHERE booknotes.id = $1;
+  `
+
+  return db.one(query, [id])
 }
 
 async function addBooknote(userId = 1, data) {
@@ -39,7 +52,16 @@ async function addBooknote(userId = 1, data) {
   )
 }
 
+async function editBooknote(data) {
+  await db.none(
+    `UPDATE booknotes SET content = $2, rating = $3, date_read = TIMESTAMP $4 AT TIME ZONE 'Asia/Manila' WHERE id = $1;`,
+    [data.id, data.notes, data.rating, data.dateRead]
+  )
+}
+
 module.exports = {
   findBooknotesByUser,
+  findBooknoteById,
   addBooknote,
+  editBooknote,
 }

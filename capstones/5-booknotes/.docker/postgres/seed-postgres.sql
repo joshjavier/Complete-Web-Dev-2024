@@ -18,12 +18,12 @@ CREATE TABLE authors (
 );
 
 CREATE TABLE booknotes (
+  id SERIAL PRIMARY KEY,
   user_id integer REFERENCES users,
   book_id integer REFERENCES books,
   content text NOT NULL,
   rating numeric(3,1) NOT NULL,
   date_read timestamp with time zone NOT NULL,
-  PRIMARY KEY (user_id, book_id),
   CONSTRAINT check_rating_is_valid CHECK (rating >= 0 AND rating <= 5)
 );
 

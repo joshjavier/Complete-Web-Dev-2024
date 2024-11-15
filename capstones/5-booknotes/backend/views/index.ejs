@@ -91,5 +91,63 @@
         <button>close</button>
       </form>
     </dialog>
+
+    <dialog id="edit_booknote_modal" class="modal">
+      <div class="modal-box">
+        <form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button></form>
+        <form id="editBooknoteForm" action="/edit" method="post">
+          <h3 class="font-bold text-lg mb-4">Edit Booknote</h3>
+          <input type="hidden" id="editBooknoteId" name="id">
+          <div class="form-control w-full">
+              <label class="label" for="editTitle">
+                  <span class="label-text">Title</span>
+              </label>
+              <input type="text" name="title" id="editTitle" placeholder="Enter book title" class="input input-bordered w-full" required disabled />
+          </div>
+          <div class="form-control w-full">
+              <label class="label" for="editAuthor">
+                  <span class="label-text">Author</span>
+              </label>
+              <input type="text" name="author" id="editAuthor" placeholder="Enter author name" class="input input-bordered w-full" required disabled />
+          </div>
+          <div class="form-control w-full">
+              <label class="label" for="editIsbn">
+                  <span class="label-text">ISBN</span>
+              </label>
+              <input type="text" name="isbn" id="editIsbn" placeholder="Tip: Enter the ISBN first to autofill title and author fields" class="input input-bordered w-full" disabled />
+          </div>
+          <div class="form-control w-full">
+              <label class="label" for="editNotes">
+                  <span class="label-text">Notes</span>
+              </label>
+              <textarea name="notes" id="editNotes" class="textarea textarea-bordered h-24" placeholder="Enter your notes about the book" required></textarea>
+          </div>
+          <div class="form-control w-full">
+              <label class="label">
+                  <span class="label-text">Rating</span>
+              </label>
+              <div class="rating" id="editRatingStars">
+                  <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" value="1" />
+                  <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" value="2" />
+                  <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" value="3" />
+                  <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" value="4" />
+                  <input type="radio" name="rating" class="mask mask-star-2 bg-orange-400" value="5" />
+              </div>
+          </div>
+          <div class="form-control w-full">
+              <label class="label" for="editDateRead">
+                  <span class="label-text">Date Read</span>
+              </label>
+              <input type="date" name="dateRead" id="editDateRead" class="input input-bordered w-full" required />
+          </div>
+          <div class="modal-action">
+              <button class="btn btn-primary" id="saveBook">Save Changes</button>
+          </div>
+        </form>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
   </body>
 </html>
