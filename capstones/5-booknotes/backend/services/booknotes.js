@@ -59,9 +59,17 @@ async function editBooknote(data) {
   )
 }
 
+async function deleteBooknote(id) {
+  await db.none(
+    `DELETE FROM booknotes WHERE id = $1`,
+    [id],
+  )
+}
+
 module.exports = {
   findBooknotesByUser,
   findBooknoteById,
   addBooknote,
   editBooknote,
+  deleteBooknote,
 }

@@ -1,4 +1,4 @@
-import { getBooknoteById } from "./services/booknotes"
+import { deleteBooknote, getBooknoteById } from "./services/booknotes"
 
 class BooknoteActions {
   constructor() {
@@ -14,6 +14,17 @@ class BooknoteActions {
     this.editButtons.forEach(button => {
       button.addEventListener('click', this.openEditModal)
     })
+
+    this.deleteButtons.forEach(button => {
+      button.addEventListener('click', async (e) => {
+        if (confirm('Are you sure you want to delete this booknote?')) {
+          const booknoteEl = e.target.closest('article[data-isbn]')
+          const id = booknoteEl.id
+          await deleteBooknote(id)
+          booknoteEl.remove()
+        }
+      })
+    });
   }
 
   /**
@@ -37,10 +48,6 @@ class BooknoteActions {
     rating.value = booknote.rating[0]
     editDateRead.value = new Intl.DateTimeFormat('sv-SE').format(new Date(booknote.date_read))
   }
-
-  async editBooknote(id) {}
-
-  async deleteBooknote(id) {}
 }
 
 export default BooknoteActions
