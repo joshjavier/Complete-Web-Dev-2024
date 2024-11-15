@@ -13,35 +13,50 @@ This is my fifth capstone project for [The Complete 2024 Web Development Bootcam
 
 ## Screenshots
 
-SCREENSHOT HERE
+![](./screenshot-home.png)
+![](./screenshot-form.png)
+
+## Built with
+
+- Node.js
+- esbuild
+- TailwindCSS / DaisyUI
+- PostgreSQL
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+<!-- These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system. -->
 
 ### Prerequisites
 
 - Node.js
-- PostgreSQL
+- PostgreSQL (or Docker)
 
-### Installing
+### Development
 
-A step by step series of examples that tell you how to get a development env running.
+For this project, the backend and frontend are split into separate directories. While developing, you need to run `npm install` and `npm run dev` on both folders.
 
-Say what the step will be
+**Backend**
 
-```
-Give the example
-```
+1. Start a Postgres server on your machine if you have a native installation. You can create the tables and insert seed data by running the commands in [this file](./.docker/postgres/seed-postgres.sql).
 
-And repeat
+   Otherwise, if you have Docker, you can start a Postgres container with seed data by running:
 
-```
-until finished
-```
+   ```sh
+   docker compose --profile postgres up
 
-End with an example of getting some data out of the system or using it for a little demo.
+   # Stop and remove containers:
+   # docker compose --profile postgres down
 
-## Usage <a name = "usage"></a>
+   # Stop and remove containers AND volumes:
+   # docker compose --profile postgres down -v
+   ```
 
-Add notes about how to use the system.
+2. Inside the `backend` directory, create an `.env` file with the connection string of your Postgres database assigned to the `POSTGRES_URL` variable.
+3. Run `npm install`, then `npm run dev`.
+
+**Frontend**
+
+In another terminal, cd to the `frontend` directory and run `npm install`, then `npm run dev`.
+
+Go to http://localhost:3000 to visit the site.
