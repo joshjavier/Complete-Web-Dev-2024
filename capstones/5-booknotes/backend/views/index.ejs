@@ -21,7 +21,7 @@
           </select>
           <button type="submit" class="sr-only">Submit</button>
         </form>
-        <button class="btn" onclick="add_form.showModal()">Add New Book</button>
+        <button class="btn" onclick="add_form.showModal()">Add a Booknote</button>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -35,7 +35,7 @@
       <div class="modal-box">
         <form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button></form>
         <form id="addBookForm" action="/add" method="post">
-          <h3 class="font-bold text-lg mb-4">Add New Book</h3>
+          <h3 class="font-bold text-lg mb-4">Add a Booknote</h3>
           <div class="form-control w-full">
               <label class="label" for="title">
                   <span class="label-text">Title</span>
@@ -83,7 +83,7 @@
               <input type="date" name="dateRead" id="dateRead" class="input input-bordered w-full" required />
           </div>
           <div class="modal-action">
-              <button class="btn btn-primary" id="saveBook">Save Book</button>
+              <button class="btn btn-primary" id="saveBook">Save Booknote</button>
           </div>
         </form>
       </div>
