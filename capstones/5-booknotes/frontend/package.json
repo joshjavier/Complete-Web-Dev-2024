@@ -1,0 +1,28 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "createdir": "npx mkdirp ../public/js ../public/css",
+    "dev:js": "node esbuild.config.mjs",
+    "build:js": "cross-env NODE_ENV=production node esbuild.config.mjs",
+    "dev:css": "tailwindcss --postcss -i css/app.css -o ../public/css/app.css --watch",
+    "build:css": "tailwindcss --postcss -i css/app.css -o ../public/css/app.css --minify",
+    "dev": "npm run createdir && concurrently --kill-others -c magenta,yellow npm:dev:*",
+    "build": "npm run createdir && concurrently -c magenta,yellow npm:build:*"
+  },
+  "dependencies": {
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "daisyui": "^4.12.14",
+    "esbuild": "0.24.0",
+    "esbuild-copy-static-files": "^0.1.0",
+    "postcss": "^8.4.48",
+    "postcss-import": "^16.1.0",
+    "postcss-preset-env": "^10.1.0",
+    "tailwindcss": "^3.4.14"
+  }
+}

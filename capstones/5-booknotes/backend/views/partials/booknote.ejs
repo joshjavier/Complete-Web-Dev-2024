@@ -1,0 +1,30 @@
+<article
+  id="<%= item.id %>"
+  class="booknote card lg:card-side bg-base-100 shadow-xl"
+  data-isbn="<%= item.isbn %>"
+>
+  <figure class="cover px-5 py-5 aspect-[1/1.45] h-72 lg:h-auto lg:w-48 shrink-0">
+    <img
+      alt="Cover of <%= item.title %>"
+      class="w-full h-full object-contain lg:object-cover rounded-lg shadow-md"
+      loading="lazy"
+    />
+  </figure>
+  <div class="card-body py-5 px-5">
+    <h2 class="card-title text-lg"><%= item.title %></h2>
+    <p class="text-sm font-semibold grow-0"><%= item.author %></p>
+    <p class="text-sm line-clamp-2"><%= item.content %></p>
+    <div class="card-actions justify-between items-center mt-auto">
+      <div class="rating">
+        <% for (let i = 1; i <= 5; i++) { %>
+            <input type="radio" name="rating-<%= item.id %>" class="mask mask-star-2 bg-orange-400" <%= i <= item.rating ? 'checked' : '' %> disabled />
+        <% } %>
+      </div>
+      <div class="text-sm">Read on: <%= new Intl.DateTimeFormat('sv-SE').format(item.date_read) %></div>
+    </div>
+    <div class="card-actions justify-end mt-2">
+      <button class="editBooknote btn btn-sm btn-outline btn-info">Edit</button>
+      <button class="deleteBooknote btn btn-sm btn-outline btn-error">Delete</button>
+    </div>
+  </div>
+</article>
