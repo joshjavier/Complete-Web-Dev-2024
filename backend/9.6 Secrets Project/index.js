@@ -56,18 +56,23 @@ app.get("/logout", (req, res) => {
   });
 });
 
-app.get("/secrets", (req, res) => {
+app.get("/secrets", async (req, res) => {
   if (req.isAuthenticated()) {
-    res.render("secrets.ejs");
-
-    //TODO: Update this to pull in the user secret to render in secrets.ejs
+    const result = await db.query('SELECT secret FROM users WHERE id = $1', [req.user.id])
+    const secret = result.rows[0]?.secret
+    res.render("secrets.ejs", { secret })
   } else {
     res.redirect("/login");
   }
 });
 
-//TODO: Add a get route for the submit button
-//Think about how the logic should work with authentication.
+app.get('/submit', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render('submit.ejs')
+  } else {
+    res.redirect('/')
+  }
+})
 
 app.get(
   "/auth/google",
@@ -125,8 +130,18 @@ app.post("/register", async (req, res) => {
   }
 });
 
-//TODO: Create the post route for submit.
-//Handle the submitted data and add it to the database
+app.post('/submit', async (req, res) => {
+  if (req.isAuthenticated()) {
+    // save received secret into the database
+    await db.query(
+      'UPDATE users SET secret = $1 WHERE id = $2;',
+      [req.body.secret, req.user.id],
+    )
+    res.redirect('/secrets')
+  } else {
+    res.redirect('/')
+  }
+})
 
 passport.use(
   "local",
