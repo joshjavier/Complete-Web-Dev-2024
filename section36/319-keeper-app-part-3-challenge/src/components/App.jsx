@@ -18,12 +18,22 @@ function App() {
     setNotes(notes.concat(newNote))
   }
 
+  const deleteNote = (id) => {
+    setNotes(notes.filter(n => n.id !== id))
+  }
+
   return (
     <div>
       <Header />
       <CreateArea addNote={addNote} />
       {notes.map(note =>
-        <Note key={note.id} title={note.title} content={note.content} />
+        <Note
+          key={note.id}
+          id={note.id}
+          title={note.title}
+          content={note.content}
+          deleteNote={deleteNote}
+        />
       )}
       <Footer />
     </div>
