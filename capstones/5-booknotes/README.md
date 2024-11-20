@@ -60,3 +60,9 @@ For this project, the backend and frontend are split into separate directories. 
 In another terminal, cd to the `frontend` directory and run `npm install`, then `npm run dev`.
 
 Go to http://localhost:3000 to visit the site.
+
+## Schema
+
+Looking back, designing the database schema like this might be a little overkill for a simple booknotes app for a single user. However, I think it's easier to scale if I ever decide to expand it into multiple users.
+
+![Database schema made using draw.io](./er-diagram.png)
